@@ -15,6 +15,7 @@ def edit(request, number):
     return HttpResponse(f'placeholder to edit blog {number}')
 def destroy(request, number):
     return redirect('/blogs')
+# Bonus answer!
 def JsonMethod(request):
     my_dict = {
         "name": "Muath",
@@ -22,3 +23,10 @@ def JsonMethod(request):
         "job": "Studying Full Stack Development"
     }
     return JsonResponse(my_dict, safe=False)
+# Experiment!!
+def empire(request):
+    empire_name = {
+        "name": "Sparta",
+        "age": 2722
+    }
+    return render(request, 'index.html', empire_name)

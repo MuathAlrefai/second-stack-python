@@ -10,5 +10,6 @@ urlpatterns = [
     path('blogs/<int:number>/edit', views.edit),
     path('blogs/<int:number>/delete', views.destroy),
     path('blogs/json', views.JsonMethod),
+    path('empire', views.empire),
     # path('admin/', admin.site.urls),
 ]
