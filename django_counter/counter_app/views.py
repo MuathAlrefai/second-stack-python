@@ -16,11 +16,11 @@ def index(request):
 def destroy(request):
     del request.session['counter']
     return redirect('/')
-
+# add 2 to the visit counter (1 from function the other when redirecting because it counts as a refresh and adds +1 by default)
 def addNum(request):
     request.session['counter'] +=1
     return redirect('/')
-
+# add any number the user specifies to the counter
 def addByInputs(request):
     x = request.POST['user_input']
     request.session['counter'] += int(x)-1
