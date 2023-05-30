@@ -8,20 +8,21 @@ def index(request):
 
 def farm(request):
     request.session['gold'] += random.randint(10, 20)
-    return redirect('/')
+    return render(request, 'index.html')
 
 def cave(request):
     request.session['gold'] += random.randint(10, 20)
-    return redirect('/')
+    return render(request, 'index.html')
 
 def house(request):
     request.session['gold'] += random.randint(10, 20)
-    return redirect('/')
+    return render(request, 'index.html')
 
 def quest(request):
     request.session['gold'] += random.randint(-50, 50)
-    return redirect('/')
+    return render(request, 'index.html')
 
 def reset(request):
     del request.session['gold']
-    return redirect('/')
+    request.session['gold'] = 0
+    return render(request, 'index.html')
