@@ -1,0 +1,17 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    font-family: cursive;
+}
+.container {
+    line-height: 40px;
+    margin-left: 3%;
+    margin-top: 15%;
+    text-align: center;
+}
+button {
+    padding: 10px;
+    background-color: violet;
+    border: none;
+    border-radius: 4px;
+}
