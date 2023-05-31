@@ -14,3 +14,7 @@ def addUser(request):
     user_age = request.POST['userAge']
     Users.objects.create(first_name = first_name, last_name = last_name, email_address = email_address, age = user_age)
     return redirect('/')
+def deleteLast(request):
+    last_user = Users.objects.last()
+    last_user.delete()
+    return redirect('/')
