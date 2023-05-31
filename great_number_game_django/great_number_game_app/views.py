@@ -1,15 +1,30 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
 import random
 
 def index(request):
-    if 'randomNum' not in request.session:
-        request.session['randomNum'] = random.randint(1,100)
+    if 'great' not in request.session:
+        request.session['great'] = 0
+    request.session['great'] = random.randint(1,100)
+    print(request.session['great'])
     return render(request,'index.html')
 
 def answer(request):
     user_input = request.POST['user_number']
+    if int(user_input) == int(request.session['great']):
+            return redirect('/correct')
+    elif int(user_input) > int(request.session['great']):
+            return redirect('/tooHigh')
+    if int(user_input) < int(request.session['great']):
+            return redirect('/tooLow')
 
-    if user_input == request.session['randomNum']:
-        return HttpResponse("Correct, wow you're a (شنّيص من الاخر)")
-    else:
-        return HttpResponse("Sorry, wrong answer, good luck next time!")
+def correct(request):
+    return render(request, 'correct.html')
+
+def tooHigh(request):
+    return render(request, 'tooHigh.html')
+
+def tooLow(request):
+    return render(request, 'tooLow.html')
+
+def tryAgain(request):
+    return redirect('/')
