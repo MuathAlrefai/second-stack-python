@@ -20,7 +20,7 @@ y = Users.objects.get(id=3)
 y.last_name = "Pancakes"
 
 //7 Delete the user with id=2 from the database
-k = Users.objects.ger(id=2)
+k = Users.objects.get(id=2)
 k.delete()
 
 //8 Get all the users, sorted by their first name
