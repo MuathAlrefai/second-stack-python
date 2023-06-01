@@ -4,7 +4,7 @@ from .models import Users
 def index(request):
     users = Users.objects.all()
     users_dict = {
-        "users": list(users.values())
+        "users": users
     }
     return render(request, 'index.html', users_dict)
 def addUser(request):
@@ -17,4 +17,8 @@ def addUser(request):
 def deleteLast(request):
     last_user = Users.objects.last()
     last_user.delete()
+    return redirect('/')
+def deleteID(request, x):
+    user_id = Users.objects.get(id = x)
+    user_id.delete()
     return redirect('/')
