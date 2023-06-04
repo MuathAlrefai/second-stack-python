@@ -53,3 +53,8 @@ body {
 .lowerDisplay {
    margin: 40px 500px;
 }
+.anchor {
+  text-decoration: none;
+  color: rgb(255, 63, 63);
+  font-size: smaller;
+}

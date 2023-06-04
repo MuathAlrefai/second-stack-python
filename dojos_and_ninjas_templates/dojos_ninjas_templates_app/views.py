@@ -4,7 +4,7 @@ from . import models
 def index(request):
     context = {
         "DOJO": models.dojoRender,
-        "NINJA": models.ninjaRender
+        "NINJA": models.ninjaRender,
     }
     return render(request, 'index.html', context)
 def dojo(request):
@@ -12,4 +12,7 @@ def dojo(request):
     return redirect('/')
 def ninja(request):
     models.ninjaAdd(request)
+    return redirect('/')
+def deleteDojo(request, dojo_id):
+    models.removeDojo(request, dojo_id)
     return redirect('/')

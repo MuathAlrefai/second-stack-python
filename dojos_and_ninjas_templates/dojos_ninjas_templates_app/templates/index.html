@@ -34,7 +34,11 @@
                 <label class="text">Last Name: </label>
                 <input type="text" name="lastName" placeholder="Enter Ninja's City" class="textBoxes"><br>
                 <label class="text">Dojo: </label>
-                <input type="text" name="ninjaDojo" placeholder="Ninja's Dojo Name" class="textBoxes"><br>
+                <select name="ninjaDojo">
+                    {% for dojo in DOJO %}
+                    <option>{{dojo.name}}</option>
+                    {% endfor %}
+                </select><br>
                 <button type="submit" class="btn">Add</button>
             </form>
         </div>
@@ -43,7 +47,7 @@
         <h1>All the Dojos</h1>
         <ul>
             {% for dojo in DOJO %}
-            <li>{{dojo.name}}
+            <li>{{dojo.name}} - {{dojo.ninjas.count}} <a href="/deleteDojo/{{dojo.id}}" class="anchor"><em>(delete)</em></a>
                 <ul>
                     {% for ninja in dojo.ninjas.all %}
                     <li><em>{{ninja.first_name}} {{ninja.last_name}} </em></li>
