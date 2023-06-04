@@ -58,3 +58,8 @@ body {
   color: rgb(255, 63, 63);
   font-size: smaller;
 }
+.anchor:hover {
+  color: rgb(255, 126, 126);
+  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  transition-property: color, background-color, box-shadow, border-color;
+}

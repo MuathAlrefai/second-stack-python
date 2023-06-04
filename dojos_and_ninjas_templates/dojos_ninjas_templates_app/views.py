@@ -3,8 +3,7 @@ from . import models
 
 def index(request):
     context = {
-        "DOJO": models.dojoRender,
-        "NINJA": models.ninjaRender,
+        "DOJOS": models.dojoRender
     }
     return render(request, 'index.html', context)
 def dojo(request):

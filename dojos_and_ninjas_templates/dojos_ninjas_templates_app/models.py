@@ -24,11 +24,8 @@ def ninjaAdd(request):
     return some_ninja
 
 def dojoRender():
-    DOJO = Dojo.objects.all()
-    return DOJO
-def ninjaRender():
-    NINJA = Ninja.objects.all()
-    return NINJA
+    DOJOS = Dojo.objects.all()
+    return DOJOS
 def removeDojo(request, dojo_id):
     some_dojo_id = Dojo.objects.get(id = dojo_id)
     some_dojo_id.delete()

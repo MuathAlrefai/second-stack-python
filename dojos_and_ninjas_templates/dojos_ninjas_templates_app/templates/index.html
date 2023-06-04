@@ -35,7 +35,7 @@
                 <input type="text" name="lastName" placeholder="Enter Ninja's City" class="textBoxes"><br>
                 <label class="text">Dojo: </label>
                 <select name="ninjaDojo">
-                    {% for dojo in DOJO %}
+                    {% for dojo in DOJOS %}
                     <option>{{dojo.name}}</option>
                     {% endfor %}
                 </select><br>
@@ -46,7 +46,7 @@
     <div class="lowerDisplay">
         <h1>All the Dojos</h1>
         <ul>
-            {% for dojo in DOJO %}
+            {% for dojo in DOJOS %}
             <li>{{dojo.name}} - {{dojo.ninjas.count}} <a href="/deleteDojo/{{dojo.id}}" class="anchor"><em>(delete)</em></a>
                 <ul>
                     {% for ninja in dojo.ninjas.all %}
