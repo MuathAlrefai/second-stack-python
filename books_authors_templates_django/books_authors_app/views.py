@@ -22,7 +22,7 @@ def bookDetails(request, bookID):
 
 def addAuthorToBook(request, bookID):
     models.connectAuthorToBook(request, bookID)
-    return redirect('/')
+    return redirect(request.META['HTTP_REFERER'])
 
 
 # -------------------------------------
@@ -53,4 +53,4 @@ def addBooktoAuthor(request, authorID):
 
 def deleteBook(request, authorID):
     models.disconnectBook(request, authorID)
-    return redirect('/authors')
+    return redirect(request.META['HTTP_REFERER'])
