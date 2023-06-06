@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from . import models
 
 # books
@@ -19,7 +19,15 @@ def bookDetails(request, bookID):
         "AUTHORS": models.getAuthor(request)
     }
     return render(request, 'book_details.html', context)
+
+def addAuthorToBook(request, bookID):
+    models.connectAuthorToBook(request, bookID)
+    return redirect('/')
+
+
 # -------------------------------------
+
+
 # authors
 def authors(request):
     context = {
@@ -38,3 +46,11 @@ def authorDetails(request, authorID):
         "BOOKS": models.getBook(request)
     }
     return render(request, 'author_details.html', context)
+
+def addBooktoAuthor(request, authorID):
+    models.connectBookToAuthor(request, authorID)
+    return redirect('/authors')
+
+def deleteBook(request, authorID):
+    models.disconnectBook(request, authorID)
+    return redirect('/authors')
