@@ -20,11 +20,11 @@ def getShows_model(request):
 def getShowInfo_model(request, showID):
     SHOW_INFO = Show.objects.get(id = showID)
     return SHOW_INFO
-def deleteShow_model(request, showID):
+def delete_model(request, showID):
     show = Show.objects.get(id = showID)
     delete_show = show.delete()
     return delete_show
-def editShow_model(request, showID):
+def update_model(request, showID):
     show = Show.objects.get(id = showID)
     show.title = request.POST['showTitle']
     show.network = request.POST['showNetwork']

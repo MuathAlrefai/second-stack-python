@@ -19,15 +19,15 @@ def showInfo(request, showID):
         "SHOW_INFO": models.getShowInfo_model(request, showID)
     }
     return render(request, 'showInfo.html', context)
-def deleteShow(request, showID):
-    models.deleteShow_model(request, showID)
+def delete(request, showID):
+    models.delete_model(request, showID)
     return redirect('/shows')
 def renderEditShow(request, showID):
     context = {
         "SHOW_INFO": models.getShowInfo_model(request, showID)
     }
-    return render(request, 'editShow.html', context)
-def editShow(request, showID):
-    models.editShow_model(request, showID)
+    return render(request, 'editShow.html', context, showID)
+def update(request, showID):
+    models.update_model(request, showID)
     #! how to make it redirect to show info page??!!
     return redirect('/shows')

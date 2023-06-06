@@ -7,7 +7,7 @@ urlpatterns = [
     path('shows/new', views.renderAddShow),
     path('shows/create', views.addShow),
     path('shows/<int:showID>', views.showInfo),
-    path('shows/<int:showID>/destroy', views.deleteShow),
+    path('shows/<int:showID>/destroy', views.delete),
     path('shows/<int:showID>/edit', views.renderEditShow),
-    path('shows/<int:showID>/editNow', views.editShow),
+    path('shows/<int:showID>/update', views.update),
 ]

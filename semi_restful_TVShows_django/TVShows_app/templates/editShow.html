@@ -11,20 +11,20 @@
 </head>
 
 <body>
-    <form action="/shows/{{SHOW_INFO.id}}/editNow" method="POST">
+    <form action="/shows/{{SHOW_INFO.id}}/update" method="POST">
         {% csrf_token %}
         <label>Title:</label><br>
-        <input type="text" name="showTitle" placeholder="Title" class="textBox">
+        <input type="text" value="{{SHOW_INFO.title}}" name="showTitle" placeholder="Title" class="textBox">
         <div class="needFlex">
             <label>Network</label>
-            <input type="text" name="showNetwork" placeholder="Network" class="textBox">
+            <input type="text" value="{{SHOW_INFO.network}}" name="showNetwork" placeholder="Network" class="textBox">
         </div>
         <div class="needFlex">
             <label>Release Date</label>
-            <input type="date" name="showReleaseDate" class="textBox">
+            <input type="date" value="{{SHOW_INFO.release_date}}" name="showReleaseDate" class="textBox">
         </div>
         <label>Description</label><br>
-        <textarea name="showDesc" cols="50" rows="10" placeholder="Show Description" class="textBox"></textarea><br>
+        <textarea name="showDesc" cols="50" rows="10" placeholder="Show Description" class="textBox">{{SHOW_INFO.desc}}</textarea><br>
         <button type="submit" class="btn">Update</button>
     </form>
     <br>
