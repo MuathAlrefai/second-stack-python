@@ -21,7 +21,7 @@
         </div>
         <div class="needFlex">
             <label>Release Date</label>
-            <input type="date" value="{{SHOW_INFO.release_date}}" name="showReleaseDate" class="textBox">
+            <input type="date" value="{{SHOW_INFO.release_date|date:'c'}}" name="showReleaseDate" class="textBox">
         </div>
         <label>Description</label><br>
         <textarea name="showDesc" cols="50" rows="10" placeholder="Show Description" class="textBox">{{SHOW_INFO.desc}}</textarea><br>
