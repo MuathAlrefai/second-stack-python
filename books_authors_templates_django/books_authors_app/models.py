@@ -18,14 +18,13 @@ class Book(models.Model):
 def createBook(request):
     some_book = request.POST['bookTitle']
     some_book_desc = request.POST['bookDesc']
-    create_book = Book.objects.create(title = some_book, desc = some_book_desc)
-    return create_book
-
+    Book.objects.create(title = some_book, desc = some_book_desc)
+    
 def getBook(request):
     some_book = Book.objects.all()
     return some_book
 
-def getBookInfo(request, bookID):
+def getBookInfo(bookID):
     book_id = Book.objects.get(id = bookID)
     return book_id
 

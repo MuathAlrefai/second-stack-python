@@ -15,14 +15,14 @@ def addBook(request):
 def bookDetails(request, bookID):
     context = {
         "BOOKS": models.getBook(request),
-        "BOOK_INFO": models.getBookInfo(request, bookID),
+        "BOOK_INFO": models.getBookInfo(bookID),
         "AUTHORS": models.getAuthor(request)
     }
     return render(request, 'book_details.html', context)
 
 def addAuthorToBook(request, bookID):
     models.connectAuthorToBook(request, bookID)
-    return redirect(request.META['HTTP_REFERER'])
+    return redirect(request.META['HTTP_REFERER']) 
 
 
 # -------------------------------------
