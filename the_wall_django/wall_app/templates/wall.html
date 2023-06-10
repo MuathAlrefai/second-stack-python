@@ -34,7 +34,8 @@
                         <h3> <b>{{post.user.first_name}} {{post.user.last_name}}</b> - {{post.created_at}} </h3>
                         <p> {{post.post}} </p>
                     </div>
-                    <form action="/delete_post">
+                    <form action="/delete_post" method="POST">
+                        {% csrf_token %}
                         <input type="hidden" name="delete_post" value="{{post.id}}">
                         <input type="submit" class="anchor" value="delete post">
                     </form>

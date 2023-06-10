@@ -25,5 +25,9 @@ def wall(request):
 
 def delete_post(request):
     post = Post.objects.get(id = request.POST['delete_post'])
-    post.delete()
-    return redirect('/wall')
+    user = User.objects.get(id = request.session['userid'])
+    if user.id == post.user.id:
+        post.delete()
+        return redirect('/wall')
+    else:
+        return redirect('/wall')
