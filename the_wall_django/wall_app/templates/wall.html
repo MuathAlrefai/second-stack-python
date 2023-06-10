@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wall_style/style.css' %}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>CodingDojo Wall</h1>
+        <div class="user_and_logout">
+            <p>Welcome, {{user.first_name}}</p>
+            <a href="/logout" class="anchor">Logout</a>
+        </div>
+    </div><br>
+    <div class="container">
+        <form action="/makepost" method="post">
+            {% csrf_token %}
+            <label for="user_post">Write a Post</label><br>
+            <textarea name="user_post" class="textBoxes" cols="50" rows="10"></textarea>
+            <button type="submit" class="btn">Post!</button>
+        </form>
+        <div class="posts">
+            {% for post in posts %}
+            <h3> {{post.user.first_name}} {{post.user.last_name}} - {{post.created_at}} </h3>
+            <p> {{post.post}} </p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
