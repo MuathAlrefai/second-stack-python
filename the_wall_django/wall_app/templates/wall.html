@@ -17,17 +17,42 @@
             <a href="/logout" class="anchor">Logout</a>
         </div>
     </div><br>
+
     <div class="container">
-        <form action="/makepost" method="post">
+
+        <form action="/makepost" method="POST">
             {% csrf_token %}
-            <label for="user_post">Write a Post</label><br>
-            <textarea name="user_post" class="textBoxes" cols="50" rows="10"></textarea>
-            <button type="submit" class="btn">Post!</button>
+            <label for="user_post" id="write_post">Write a Post</label><br>
+            <textarea name="user_post" class="textBoxes" cols="50" rows="10"></textarea><br>
+            <button type="submit" id="make_post">Post!</button>
         </form>
+
         <div class="posts">
             {% for post in posts %}
-            <h3> {{post.user.first_name}} {{post.user.last_name}} - {{post.created_at}} </h3>
-            <p> {{post.post}} </p>
+                <div class="posts_div">
+                    <div>
+                        <h3> <b>{{post.user.first_name}} {{post.user.last_name}}</b> - {{post.created_at}} </h3>
+                        <p> {{post.post}} </p>
+                    </div>
+                    <form action="/delete_post">
+                        <input type="hidden" name="delete_post" value="{{post.id}}">
+                        <input type="submit" class="anchor" value="delete post">
+                    </form>
+                </div><br>
+
+                <div class="comments_div">
+                    {% for comment in post.comments.all %}
+                    <h4> <b>{{comment.user.first_name}} {{comment.user.last_name}}</b> - {{post.created_at}} </h4>
+                    <p>{{comment.comment}}</p><br>
+                    {% endfor %}
+                </div>
+
+                <form action="/makecomment/{{post.id}}" method="POST">
+                    {% csrf_token %}
+                    <label for="user_comment">comment</label><br>
+                    <textarea name="user_comment" class="textBoxes" placeholder="Leave {{post.user.first_name}} a comment" cols="35" rows="3"></textarea><br>
+                    <button type="submit" id="make_comment">Comment</button>
+                </form><br>
             {% endfor %}
         </div>
     </div>

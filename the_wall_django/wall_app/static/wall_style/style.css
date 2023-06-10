@@ -1,6 +1,6 @@
 * {
-    margin: 0 auto;
-    padding: 0 auto;
+    margin: 0;
+    padding: 0;
     font-family: helvetica;
   }
   label {
@@ -20,16 +20,30 @@
     background-color: rgb(59, 0, 89);
     border-radius: 4px;
     display: flex;
+    justify-content: space-between;
     padding: 20px;
     width: 100%;
+    align-items: center;
   }
   .user_and_logout {
     display: flex;
     gap: 30px;
-    width: 200px;
+    width: 300px;
+  }
+  #write_post {
+    font-size: 30px;
+    width: fit-content;
+    margin-bottom: 10px;
   }
   .container {
     width: 80%;
+    margin: 20px 200px;
+  }
+  .posts {
+    border: 1px solid #7d8590;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 19.5%;
   }
   .btn {
     padding: 10px;
@@ -46,8 +60,47 @@
     transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
     transition-property: color, background-color, box-shadow, border-color;
   }
-  .btn:hover {
+  .btn:hover, #make_post:hover, #make_comment:hover {
     background-color: #44c25d;
+  }
+  #make_post {
+    padding: 10px;
+    color: white;
+    background-color: #135b22;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 4px 4px black;
+    border-radius: 4px;
+    margin: 20px 0px;
+    width: 130px;
+    font-size: 15px;
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color, background-color, box-shadow, border-color;
+  }
+   #make_comment {
+    padding: 5px 10px;
+    color: white;
+    background-color: #1c6455;
+    font-size: 13px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 4px 4px black;
+    border-radius: 4px;
+    margin: 20px 0px;
+    width: fit-content;
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color, background-color, box-shadow, border-color;
+  }
+  .comments_div {
+    text-indent: 20px;
+  }
+  .posts_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
   }
   .textBoxes {
     border: 1px solid #7d8590;

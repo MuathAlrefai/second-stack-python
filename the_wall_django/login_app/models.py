@@ -6,9 +6,9 @@ import bcrypt
 class Validator(models.Manager):
     def basic_validator(self, post_data):
         errors = {}
-        # db_emails = User.objects.get(email = post_data['email'])
-        # if post_data['email'] == db_emails.email:
-        #     errors['email'] = "This Email is already in use!"
+        db_emails = User.objects.filter(email = post_data['email'])
+        if len(db_emails) > 0:
+            errors['email'] = "This Email is already in use!"
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         if not EMAIL_REGEX.match(post_data['email']):
             errors['email'] = "Invalid email address!"
@@ -67,5 +67,8 @@ def login_model(request):
             return redirect('/wall')
     return redirect('/')
 
-def user_session_model(request):
-    return User.objects.get(id=request.session['userid'])
+
+
+
+# def user_session_model(request):
+#     return User.objects.get(id=request.session['userid'])

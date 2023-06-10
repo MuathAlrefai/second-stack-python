@@ -18,12 +18,12 @@ def login(request):
     return models.login_model(request)
 
 
-def success(request):
-    context = {
-        "user": models.user_session_model(request)
-    }
-    return render(request, 'success.html', context)
-
 def logout(request):
     del request.session['userid']
     return redirect('/')
+
+# def success(request):
+#     context = {
+#         "user": models.user_session_model(request)
+#     }
+#     return render(request, 'success.html', context)
